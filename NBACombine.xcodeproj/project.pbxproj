@@ -9,14 +9,19 @@
 /* Begin PBXBuildFile section */
 		DAC7808A27BDB8B600B61230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7808927BDB8B600B61230 /* AppDelegate.swift */; };
 		DAC7808C27BDB8B600B61230 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7808B27BDB8B600B61230 /* SceneDelegate.swift */; };
-		DAC7808E27BDB8B600B61230 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7808D27BDB8B600B61230 /* ViewController.swift */; };
-		DAC7809127BDB8B600B61230 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC7808F27BDB8B600B61230 /* Main.storyboard */; };
 		DAC7809327BDB8B700B61230 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC7809227BDB8B700B61230 /* Assets.xcassets */; };
 		DAC7809627BDB8B700B61230 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC7809427BDB8B700B61230 /* LaunchScreen.storyboard */; };
 		DAC780A127BDB8B800B61230 /* CombineWithNBATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC780A027BDB8B800B61230 /* CombineWithNBATests.swift */; };
 		DAC780AB27BDB8B800B61230 /* CombineWithNBAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC780AA27BDB8B800B61230 /* CombineWithNBAUITests.swift */; };
 		DAC780AD27BDB8B800B61230 /* CombineWithNBAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC780AC27BDB8B800B61230 /* CombineWithNBAUITestsLaunchTests.swift */; };
-		DAC780BA27BDBA5E00B61230 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC780B927BDBA5E00B61230 /* APICaller.swift */; };
+		DAC780BA27BDBA5E00B61230 /* NBAStatsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC780B927BDBA5E00B61230 /* NBAStatsAPIClient.swift */; };
+		DAED2D622B36C16C0038D66F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D612B36C16C0038D66F /* MainView.swift */; };
+		DAED2D652B36C6000038D66F /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D642B36C6000038D66F /* MainViewViewModel.swift */; };
+		DAED2D6B2B36D53B0038D66F /* NBAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D6A2B36D53B0038D66F /* NBAButton.swift */; };
+		DAED2D6D2B36DEC10038D66F /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D6C2B36DEC10038D66F /* AudioPlayerViewModel.swift */; };
+		DAED2D6F2B36E0410038D66F /* nbaSoundTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAED2D6E2B36E0410038D66F /* nbaSoundTrack.mp3 */; };
+		DAED2D712B36E5FD0038D66F /* TeamCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D702B36E5FD0038D66F /* TeamCardView.swift */; };
+		DAED2D732B36E8B80038D66F /* SelectTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D722B36E8B80038D66F /* SelectTeamView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +45,6 @@
 		DAC7808627BDB8B600B61230 /* CombineWithNBA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithNBA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7808927BDB8B600B61230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC7808B27BDB8B600B61230 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DAC7808D27BDB8B600B61230 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DAC7809027BDB8B600B61230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAC7809227BDB8B700B61230 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAC7809527BDB8B700B61230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAC7809727BDB8B700B61230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,7 +53,14 @@
 		DAC780A627BDB8B800B61230 /* CombineWithNBAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombineWithNBAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC780AA27BDB8B800B61230 /* CombineWithNBAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWithNBAUITests.swift; sourceTree = "<group>"; };
 		DAC780AC27BDB8B800B61230 /* CombineWithNBAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWithNBAUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DAC780B927BDBA5E00B61230 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		DAC780B927BDBA5E00B61230 /* NBAStatsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStatsAPIClient.swift; sourceTree = "<group>"; };
+		DAED2D612B36C16C0038D66F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DAED2D642B36C6000038D66F /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		DAED2D6A2B36D53B0038D66F /* NBAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAButton.swift; sourceTree = "<group>"; };
+		DAED2D6C2B36DEC10038D66F /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
+		DAED2D6E2B36E0410038D66F /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nbaSoundTrack.mp3; path = ../../Downloads/nbaSoundTrack.mp3; sourceTree = "<group>"; };
+		DAED2D702B36E5FD0038D66F /* TeamCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCardView.swift; sourceTree = "<group>"; };
+		DAED2D722B36E8B80038D66F /* SelectTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +111,11 @@
 		DAC7808827BDB8B600B61230 /* CombineWithNBA */ = {
 			isa = PBXGroup;
 			children = (
-				DAC7808927BDB8B600B61230 /* AppDelegate.swift */,
-				DAC7808B27BDB8B600B61230 /* SceneDelegate.swift */,
-				DAC7808D27BDB8B600B61230 /* ViewController.swift */,
-				DAC780B927BDBA5E00B61230 /* APICaller.swift */,
-				DAC7808F27BDB8B600B61230 /* Main.storyboard */,
-				DAC7809227BDB8B700B61230 /* Assets.xcassets */,
-				DAC7809427BDB8B700B61230 /* LaunchScreen.storyboard */,
+				DAED2D6E2B36E0410038D66F /* nbaSoundTrack.mp3 */,
+				DAED2D692B36CE740038D66F /* Project */,
+				DAED2D682B36CE480038D66F /* Service */,
+				DAED2D672B36CE2D0038D66F /* ViewModels */,
+				DAED2D662B36CE270038D66F /* Views */,
 				DAC7809727BDB8B700B61230 /* Info.plist */,
 			);
 			path = CombineWithNBA;
@@ -128,6 +136,45 @@
 				DAC780AC27BDB8B800B61230 /* CombineWithNBAUITestsLaunchTests.swift */,
 			);
 			path = CombineWithNBAUITests;
+			sourceTree = "<group>";
+		};
+		DAED2D662B36CE270038D66F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAED2D612B36C16C0038D66F /* MainView.swift */,
+				DAED2D6A2B36D53B0038D66F /* NBAButton.swift */,
+				DAED2D702B36E5FD0038D66F /* TeamCardView.swift */,
+				DAED2D722B36E8B80038D66F /* SelectTeamView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DAED2D672B36CE2D0038D66F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DAED2D642B36C6000038D66F /* MainViewViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DAED2D682B36CE480038D66F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DAED2D6C2B36DEC10038D66F /* AudioPlayerViewModel.swift */,
+				DAC780B927BDBA5E00B61230 /* NBAStatsAPIClient.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DAED2D692B36CE740038D66F /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				DAC7808927BDB8B600B61230 /* AppDelegate.swift */,
+				DAC7808B27BDB8B600B61230 /* SceneDelegate.swift */,
+				DAC7809227BDB8B700B61230 /* Assets.xcassets */,
+				DAC7809427BDB8B700B61230 /* LaunchScreen.storyboard */,
+			);
+			path = Project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DAC7808127BDB8B600B61230 /* Build configuration list for PBXProject "CombineWithNBA" */;
+			buildConfigurationList = DAC7808127BDB8B600B61230 /* Build configuration list for PBXProject "NBACombine" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -234,9 +281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAED2D6F2B36E0410038D66F /* nbaSoundTrack.mp3 in Resources */,
 				DAC7809627BDB8B700B61230 /* LaunchScreen.storyboard in Resources */,
 				DAC7809327BDB8B700B61230 /* Assets.xcassets in Resources */,
-				DAC7809127BDB8B600B61230 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAC7808E27BDB8B600B61230 /* ViewController.swift in Sources */,
+				DAED2D622B36C16C0038D66F /* MainView.swift in Sources */,
+				DAED2D712B36E5FD0038D66F /* TeamCardView.swift in Sources */,
+				DAED2D6B2B36D53B0038D66F /* NBAButton.swift in Sources */,
+				DAED2D6D2B36DEC10038D66F /* AudioPlayerViewModel.swift in Sources */,
+				DAED2D732B36E8B80038D66F /* SelectTeamView.swift in Sources */,
 				DAC7808A27BDB8B600B61230 /* AppDelegate.swift in Sources */,
 				DAC7808C27BDB8B600B61230 /* SceneDelegate.swift in Sources */,
-				DAC780BA27BDBA5E00B61230 /* APICaller.swift in Sources */,
+				DAED2D652B36C6000038D66F /* MainViewViewModel.swift in Sources */,
+				DAC780BA27BDBA5E00B61230 /* NBAStatsAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DAC7808F27BDB8B600B61230 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DAC7809027BDB8B600B61230 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DAC7809427BDB8B700B61230 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -449,9 +493,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = NBACombine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,9 +522,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = NBACombine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,7 +617,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DAC7808127BDB8B600B61230 /* Build configuration list for PBXProject "CombineWithNBA" */ = {
+		DAC7808127BDB8B600B61230 /* Build configuration list for PBXProject "NBACombine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAC780AE27BDB8B800B61230 /* Debug */,
