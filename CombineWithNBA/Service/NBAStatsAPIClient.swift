@@ -32,8 +32,11 @@ class NBAStatsAPIClient {
             .eraseToAnyPublisher()
     }
     
-    func fetchNBAGames(from data: Date) -> AnyPublisher<NBAGames, Error> {
-        URLSession.shared.dataTaskPublisher(for: URL(string: "https://www.balldontlie.io/api/v1/games?dates[]=2023-12-26")!)
+    func fetchNBAGames(from date: Date = .now) -> AnyPublisher<NBAGames, Error> {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDate = dateFormatter.string(from: date)
+        return URLSession.shared.dataTaskPublisher(for: URL(string: "https://www.balldontlie.io/api/v1/games?dates[]=\(formattedDate)")!)
             .receive(on: DispatchQueue.main)
             .map { $0.data }
             .decode(type: NBAGames.self, decoder: JSONDecoder())
