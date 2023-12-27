@@ -6,7 +6,7 @@
 //
 
 /// Represents an NBA game.
-struct NBAGame: Codable {
+struct NBAGame: Codable, Identifiable {
     /// The unique identifier for the game.
     let id: Int
     
