@@ -33,7 +33,7 @@ struct MainView: View {
                 }
                 
                 // NavigationLink to transition to the SelectTeamView
-                NavigationLink(destination: NBAGameView(), tag: "B", selection: $selection) {
+                NavigationLink(destination: NBAGamesTodayView(viewModel: .init()), tag: "B", selection: $selection) {
                     EmptyView()
                 }
                 // NBAButton to find team stats

@@ -8,41 +8,43 @@
 import SwiftUI
 
 struct NBAGameView: View {
-    var body: some View {
-        VStack {
-            HStack {
-                Text("Lakers vs Clippers")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Spacer()
-            }
+    @StateObject var viewModel: NBAGameViewModel
 
-            Divider()
+        var body: some View {
+            VStack {
+                HStack {
+                    Text("\(viewModel.homeTeam) vs \(viewModel.awayTeam)")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
 
-            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Home Team: Lakers")
-                    Text("Away Team: Clippers")
-                    Text("Status: In progress")
+                Divider()
+
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Home Team: \(viewModel.homeTeam)")
+                        Text("Away Team: \(viewModel.awayTeam)")
+                        Text("Status: \(viewModel.status)")
+                    }
+
+                    Spacer()
+
+                    VStack(alignment: .trailing, spacing: 10) {
+                        Text("Home Score: \(viewModel.homeScore)")
+                        Text("Away Score: \(viewModel.awayScore)")
+                        Text("Time: \(viewModel.time)")
+                        Text("Quarter: \(viewModel.quarter)")
+                    }
                 }
 
                 Spacer()
-
-                VStack(alignment: .trailing, spacing: 10) {
-                    Text("Home Score: 50")
-                    Text("Away Score: 50")
-                    Text("Time: 7:30")
-                    Text("Quarter: 2nd")
-                }
             }
-
-            Spacer()
+            .padding()
+            .navigationBarTitle("Game Details", displayMode: .inline)
         }
-        .padding()
-        .navigationBarTitle("Game Details", displayMode: .inline)
-    }
 }
 
 #Preview {
-    NBAGameView()
+    NBAGameView(viewModel: .init(game: .mock()))
 }
