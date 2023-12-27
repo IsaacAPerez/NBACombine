@@ -61,7 +61,7 @@ struct SelectTeamView: View {
         NBATeam(id: 30, abbreviation: "WAS", city: "Washington", conference: "Eastern", division: "Southeast", full_name: "Washington Wizards", name: "Wizards")
     ]
 
-    let mockNBAMeta: NBAMeta = NBAMeta(total_pages: 1, current_page: 1, next_page: nil, per_page: 30, total_count: mockNBATeamsData.count)
+    let mockNBAMeta: NBAMetadata = NBAMetadata(total_pages: 1, current_page: 1, next_page: nil, per_page: 30, total_count: mockNBATeamsData.count)
 
     let mockNBATeams: NBATeams = NBATeams(data: mockNBATeamsData, meta: mockNBAMeta)
 

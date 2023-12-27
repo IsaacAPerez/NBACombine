@@ -17,12 +17,15 @@ final class MainViewViewModel: ObservableObject {
     /// Published property to store NBA team data.
     @Published var nbaTeam: NBATeams?
     
+    @Published var nbaGames: NBAGames?
+    
     /// Audio player for handling audio playback.
     let audioPlayer = AudioPlayerViewModel()
 
     /// Initializes the MainViewViewModel and fetches NBA team data.
     init() {
         fetchNBATeams()
+        fetchNBAGames()
     }
 
     /// Fetches NBA team data from the API.
@@ -41,6 +44,24 @@ final class MainViewViewModel: ObservableObject {
                 self?.nbaTeam = teams
             })
             .store(in: &cancellables)
+    }
+    
+    func fetchNBAGames() {
+        NBAStatsAPIClient.shared
+            .fetchNBAGames(from: .now)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error fetching NBA games: \(error)")
+                }
+            }, receiveValue: { [weak self] teams in
+                self?.nbaGames = teams
+            })
+            .store(in: &cancellables)
+        
     }
 
     /// Plays or pauses the audio.

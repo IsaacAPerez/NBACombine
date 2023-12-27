@@ -31,10 +31,15 @@ struct MainView: View {
                 NavigationLink(destination: SelectTeamView(nbaTeam: viewModel.nbaTeam), tag: "A", selection: $selection) {
                     EmptyView()
                 }
+                
+                // NavigationLink to transition to the SelectTeamView
+                NavigationLink(destination: NBAGameView(), tag: "B", selection: $selection) {
+                    EmptyView()
+                }
                 // NBAButton to find team stats
                 NBAButton(title: "Find Team Stats", action: { selection = "A" })
                 // NBAButton to see today's scores
-                NBAButton(title: "See Today's Scores", action: {})
+                NBAButton(title: "See Today's Scores", action: {selection = "B"})
             }
             .padding()
             .frame(maxWidth: .infinity)

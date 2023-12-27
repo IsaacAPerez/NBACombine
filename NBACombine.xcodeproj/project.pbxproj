@@ -22,6 +22,12 @@
 		DAED2D6F2B36E0410038D66F /* nbaSoundTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAED2D6E2B36E0410038D66F /* nbaSoundTrack.mp3 */; };
 		DAED2D712B36E5FD0038D66F /* TeamCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D702B36E5FD0038D66F /* TeamCardView.swift */; };
 		DAED2D732B36E8B80038D66F /* SelectTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D722B36E8B80038D66F /* SelectTeamView.swift */; };
+		DAED2D752B3BB1FE0038D66F /* NBAGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D742B3BB1FE0038D66F /* NBAGameView.swift */; };
+		DAED2D782B3BB9360038D66F /* NBAGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D772B3BB9360038D66F /* NBAGame.swift */; };
+		DAED2D7A2B3BB9650038D66F /* NBATeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D792B3BB9650038D66F /* NBATeams.swift */; };
+		DAED2D7C2B3BB98A0038D66F /* NBAMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D7B2B3BB98A0038D66F /* NBAMetadata.swift */; };
+		DAED2D7E2B3BB9A60038D66F /* NBATeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D7D2B3BB9A60038D66F /* NBATeam.swift */; };
+		DAED2D802B3BB9C50038D66F /* NBAGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D7F2B3BB9C50038D66F /* NBAGames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,12 @@
 		DAED2D6E2B36E0410038D66F /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nbaSoundTrack.mp3; path = ../../Downloads/nbaSoundTrack.mp3; sourceTree = "<group>"; };
 		DAED2D702B36E5FD0038D66F /* TeamCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCardView.swift; sourceTree = "<group>"; };
 		DAED2D722B36E8B80038D66F /* SelectTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamView.swift; sourceTree = "<group>"; };
+		DAED2D742B3BB1FE0038D66F /* NBAGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGameView.swift; sourceTree = "<group>"; };
+		DAED2D772B3BB9360038D66F /* NBAGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGame.swift; sourceTree = "<group>"; };
+		DAED2D792B3BB9650038D66F /* NBATeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeams.swift; sourceTree = "<group>"; };
+		DAED2D7B2B3BB98A0038D66F /* NBAMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAMetadata.swift; sourceTree = "<group>"; };
+		DAED2D7D2B3BB9A60038D66F /* NBATeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeam.swift; sourceTree = "<group>"; };
+		DAED2D7F2B3BB9C50038D66F /* NBAGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,7 @@
 				DAED2D6A2B36D53B0038D66F /* NBAButton.swift */,
 				DAED2D702B36E5FD0038D66F /* TeamCardView.swift */,
 				DAED2D722B36E8B80038D66F /* SelectTeamView.swift */,
+				DAED2D742B3BB1FE0038D66F /* NBAGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 		DAED2D682B36CE480038D66F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DAED2D762B3BB9210038D66F /* DataModels */,
 				DAED2D6C2B36DEC10038D66F /* AudioPlayerViewModel.swift */,
 				DAC780B927BDBA5E00B61230 /* NBAStatsAPIClient.swift */,
 			);
@@ -175,6 +189,18 @@
 				DAC7809427BDB8B700B61230 /* LaunchScreen.storyboard */,
 			);
 			path = Project;
+			sourceTree = "<group>";
+		};
+		DAED2D762B3BB9210038D66F /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				DAED2D772B3BB9360038D66F /* NBAGame.swift */,
+				DAED2D792B3BB9650038D66F /* NBATeams.swift */,
+				DAED2D7B2B3BB98A0038D66F /* NBAMetadata.swift */,
+				DAED2D7D2B3BB9A60038D66F /* NBATeam.swift */,
+				DAED2D7F2B3BB9C50038D66F /* NBAGames.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,11 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAED2D7A2B3BB9650038D66F /* NBATeams.swift in Sources */,
 				DAED2D622B36C16C0038D66F /* MainView.swift in Sources */,
 				DAED2D712B36E5FD0038D66F /* TeamCardView.swift in Sources */,
 				DAED2D6B2B36D53B0038D66F /* NBAButton.swift in Sources */,
 				DAED2D6D2B36DEC10038D66F /* AudioPlayerViewModel.swift in Sources */,
+				DAED2D782B3BB9360038D66F /* NBAGame.swift in Sources */,
+				DAED2D752B3BB1FE0038D66F /* NBAGameView.swift in Sources */,
 				DAED2D732B36E8B80038D66F /* SelectTeamView.swift in Sources */,
+				DAED2D7E2B3BB9A60038D66F /* NBATeam.swift in Sources */,
+				DAED2D7C2B3BB98A0038D66F /* NBAMetadata.swift in Sources */,
+				DAED2D802B3BB9C50038D66F /* NBAGames.swift in Sources */,
 				DAC7808A27BDB8B600B61230 /* AppDelegate.swift in Sources */,
 				DAC7808C27BDB8B600B61230 /* SceneDelegate.swift in Sources */,
 				DAED2D652B36C6000038D66F /* MainViewViewModel.swift in Sources */,
