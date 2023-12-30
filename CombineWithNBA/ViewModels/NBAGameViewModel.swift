@@ -39,7 +39,11 @@ final class NBAGameViewModel: ObservableObject {
     }
 
     var quarter: String {
-        "\(game.period) \(game.period > 1 ? "Quarters" : "Quarter")"
+        if game.period < 1 {
+            return "Game has not started"
+        } else {
+            return "\(game.period) Quarter"
+        }
     }
     
     init(game: NBAGame) {

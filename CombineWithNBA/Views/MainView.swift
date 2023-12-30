@@ -11,40 +11,56 @@ import SwiftUI
 struct MainView: View {
     /// View model for the MainView.
     @ObservedObject var viewModel: MainViewViewModel
-    /// State to manage the navigation selection.
-    @State private var selection: String? = nil
+    @State private var path: [Screen] = []
+    
+    enum Screen: Codable {
+        case teamStats
+        case todaysGame
+    }
     
     /// Body of the MainView.
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             VStack {
                 Text("NBA Combine: Stats Tracker")
                     .foregroundStyle(Color("NBAWhite"))
-                    .font(.largeTitle)
+                    .font(.custom("NBA Lakers", size: 50))
                     .multilineTextAlignment(.center)
                 Spacer()
                 Image("nbaLogo")
                     .resizable()
                     .scaledToFit()
+                Image(systemName: viewModel.musicButtonName)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color("NBARed"))
+                    .onTapGesture {
+                        viewModel.isAudioPlaying.toggle()
+                    }
                 Spacer()
-                // NavigationLink to transition to the SelectTeamView
-                NavigationLink(destination: SelectTeamView(nbaTeam: viewModel.nbaTeam), tag: "A", selection: $selection) {
-                    EmptyView()
-                }
-                
-                // NavigationLink to transition to the SelectTeamView
-                NavigationLink(destination: NBAGamesTodayView(viewModel: .init()), tag: "B", selection: $selection) {
-                    EmptyView()
-                }
-                // NBAButton to find team stats
-                NBAButton(title: "Find Team Stats", action: { selection = "A" })
-                // NBAButton to see today's scores
-                NBAButton(title: "See Today's Scores", action: {selection = "B"})
+                NBAButton(title: "See Today's Scores", action: { path.append(.todaysGame) })
+                NBAButton(title: "Find Team Stats",action: { path.append(.teamStats) })
             }
             .padding()
             .frame(maxWidth: .infinity)
             .background(Color("NBABlue"))
-            .onAppear { viewModel.playAudio() }
+            .navigationDestination(for: Screen.self) { screen in
+                switch screen {
+                case .teamStats:
+                    SelectTeamView(nbaTeam: viewModel.nbaTeam)
+                case .todaysGame:
+                    NBAGamesTodayView(viewModel: .init())
+                }
+            }
+        }
+        .onAppear {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor(Color("NBABlue"))
+            
+            // Inline appearance (standard height appearance)
+            UINavigationBar.appearance().standardAppearance = appearance
+            // Large Title appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
     }
 }

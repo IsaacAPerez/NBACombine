@@ -33,7 +33,7 @@ class AudioPlayerViewModel: ObservableObject {
     /// Toggles between playing and pausing the audio.
     func playOrPause() {
         guard let player = audioPlayer else { return }
-        if !player.isPlaying {
+        if player.isPlaying {
             // If not playing, pause the audio
             player.pause()
             isPlaying = false

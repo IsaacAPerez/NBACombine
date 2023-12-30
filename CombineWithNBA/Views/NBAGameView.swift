@@ -12,36 +12,42 @@ struct NBAGameView: View {
 
         var body: some View {
             VStack {
-                HStack {
-                    Text("\(viewModel.homeTeam) vs \(viewModel.awayTeam)")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-
-                Divider()
-
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Home Team: \(viewModel.homeTeam)")
-                        Text("Away Team: \(viewModel.awayTeam)")
-                        Text("Status: \(viewModel.status)")
+                HStack(spacing: 50) {
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("Home Team")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Text(viewModel.game.home_team.city)
+                            .multilineTextAlignment(.center)
+                        Text(viewModel.homeTeam)
+                        Text(viewModel.homeScore)
+                            .font(.title)
+                            .fontWeight(.bold)
                     }
-
-                    Spacer()
-
-                    VStack(alignment: .trailing, spacing: 10) {
-                        Text("Home Score: \(viewModel.homeScore)")
-                        Text("Away Score: \(viewModel.awayScore)")
-                        Text("Time: \(viewModel.time)")
-                        Text("Quarter: \(viewModel.quarter)")
+                    VStack {
+                        Text(viewModel.time)
+                        Text(viewModel.quarter)
+                            .multilineTextAlignment(.center)
                     }
+                    
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("Away Team")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Text(viewModel.game.visitor_team.city)
+                        Text(viewModel.awayTeam)
+                        Text(viewModel.awayScore)
+                            .font(.title)
+                            .fontWeight(.bold)
+                    }
+                    
                 }
-
-                Spacer()
             }
+            .frame(maxWidth: .infinity)
             .padding()
-            .navigationBarTitle("Game Details", displayMode: .inline)
+            .background(Color("NBARed"))
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            
         }
 }
 

@@ -16,8 +16,11 @@ struct TeamCardView: View {
     var body: some View {
         VStack {
             Text(nbaTeam.name)
+                .font(.custom("NBA Lakers", size: 40))
             Text(nbaTeam.city)
+                .font(.custom("NBA Lakers", size: 20))
             Text(nbaTeam.conference)
+                .font(.custom("NBA Lakers", size: 15))
             NBAButton(title: "Tap", action: {})
                 .backgroundColor(.black)
                 .textColor(.white)
@@ -31,6 +34,6 @@ struct TeamCardView: View {
 // Preview for the TeamCardView
 struct TeamCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamCardView(nbaTeam: .init(id: 1, abbreviation: "LAL", city: "Los Angeles", conference: "Western", division: "Pacific", full_name: "Los Angeles Lakers", name: "Lakers"))
+        TeamCardView(nbaTeam: .mock(team: .lakers))
     }
 }

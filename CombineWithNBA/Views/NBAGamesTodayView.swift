@@ -15,6 +15,19 @@ struct NBAGamesTodayView: View {
         ScrollView {
             ForEach(viewModel.nbaGames.data) { game in
                 NBAGameView(viewModel: .init(game: game))
+                    .padding(.horizontal, 16)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color("NBABlue"))
+        .navigationBarTitle("NBA Games Today", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {viewModel.fetchNBAGames()}, label: {
+                    Image(systemName: "arrow.clockwise")
+                        .resizable()
+                        .foregroundColor(Color("NBARed"))
+                })
             }
         }
     }

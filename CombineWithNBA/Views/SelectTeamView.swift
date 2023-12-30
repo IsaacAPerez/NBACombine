@@ -24,6 +24,7 @@ struct SelectTeamView: View {
         }
         .padding()
         .background(Color("NBABlue"))
+        .navigationBarTitle("Select NBA Team", displayMode: .inline)
     }
 }
 

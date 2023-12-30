@@ -19,6 +19,20 @@ final class MainViewViewModel: ObservableObject {
     
     @Published var nbaGames: NBAGames?
     
+    @Published var isAudioPlaying: Bool = false {
+        didSet {
+            audioPlayer.playOrPause()
+        }
+    }
+    
+    var musicButtonName: String {
+        if isAudioPlaying {
+            return "pause.circle"
+        } else {
+            return "play.circle"
+        }
+    }
+    
     /// Audio player for handling audio playback.
     let audioPlayer = AudioPlayerViewModel()
 
