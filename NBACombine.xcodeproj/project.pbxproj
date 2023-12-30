@@ -35,6 +35,8 @@
 		DAED2D8F2B3CD6000038D66F /* NBAGames+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D8E2B3CD6000038D66F /* NBAGames+Mock.swift */; };
 		DAED2D912B3CD6850038D66F /* NBAMetadata+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D902B3CD6850038D66F /* NBAMetadata+Mock.swift */; };
 		DAED2D932B3CD6C40038D66F /* NBATeams+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D922B3CD6C40038D66F /* NBATeams+Mock.swift */; };
+		DAED2D992B3CE81B0038D66F /* nba-lakers.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAED2D982B3CE81B0038D66F /* nba-lakers.ttf */; };
+		DAFB20782B3FA2750072C7C8 /* nbaSoundTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAFB20772B3FA2750072C7C8 /* nbaSoundTrack.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,11 +85,12 @@
 		DAED2D832B3BBFDD0038D66F /* NBAGamesTodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGamesTodayViewModel.swift; sourceTree = "<group>"; };
 		DAED2D852B3CCD2C0038D66F /* NBAGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGameViewModel.swift; sourceTree = "<group>"; };
 		DAED2D892B3CCF9C0038D66F /* NBATeam+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBATeam+Mock.swift"; sourceTree = "<group>"; };
-		DAED2D8B2B3CD0140038D66F /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nbaSoundTrack.mp3; sourceTree = "<group>"; };
 		DAED2D8C2B3CD0890038D66F /* NBAGame+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBAGame+Mock.swift"; sourceTree = "<group>"; };
 		DAED2D8E2B3CD6000038D66F /* NBAGames+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBAGames+Mock.swift"; sourceTree = "<group>"; };
 		DAED2D902B3CD6850038D66F /* NBAMetadata+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBAMetadata+Mock.swift"; sourceTree = "<group>"; };
 		DAED2D922B3CD6C40038D66F /* NBATeams+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBATeams+Mock.swift"; sourceTree = "<group>"; };
+		DAED2D982B3CE81B0038D66F /* nba-lakers.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nba-lakers.ttf"; sourceTree = "<group>"; };
+		DAFB20772B3FA2750072C7C8 /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nbaSoundTrack.mp3; path = Project/Assets.xcassets/nbaSoundTrack.dataset/nbaSoundTrack.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 		DAC7808827BDB8B600B61230 /* CombineWithNBA */ = {
 			isa = PBXGroup;
 			children = (
+				DAFB20772B3FA2750072C7C8 /* nbaSoundTrack.mp3 */,
+				DAED2D982B3CE81B0038D66F /* nba-lakers.ttf */,
 				DAED2D872B3CCF4A0038D66F /* Utilities */,
 				DAED2D692B36CE740038D66F /* Project */,
 				DAED2D682B36CE480038D66F /* Service */,
@@ -224,7 +229,6 @@
 		DAED2D872B3CCF4A0038D66F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DAED2D8B2B3CD0140038D66F /* nbaSoundTrack.mp3 */,
 				DAED2D882B3CCF8C0038D66F /* Mocks */,
 			);
 			path = Utilities;
@@ -346,7 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAED2D992B3CE81B0038D66F /* nba-lakers.ttf in Resources */,
 				DAC7809627BDB8B700B61230 /* LaunchScreen.storyboard in Resources */,
+				DAFB20782B3FA2750072C7C8 /* nbaSoundTrack.mp3 in Resources */,
 				DAC7809327BDB8B700B61230 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,11 +575,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CombineWithNBA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NBACombine;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,11 +605,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CombineWithNBA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NBACombine;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
