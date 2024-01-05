@@ -12,19 +12,25 @@ import SwiftUI
 /// ViewModel for the main view of the app.
 final class MainViewViewModel: ObservableObject {
     /// Set of cancellables to store Combine publishers.
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
+    
+    /// Array representing the navigation path through different screens.
+    @State var path: [ScreenType] = []
     
     /// Published property to store NBA team data.
     @Published var nbaTeam: NBATeams?
     
+    /// Published property to store NBA games data.
     @Published var nbaGames: NBAGames?
     
+    /// Published property indicating whether audio is currently playing.
     @Published var isAudioPlaying: Bool = false {
         didSet {
             audioPlayer.playOrPause()
         }
     }
     
+    /// Computed property providing the name of the music button based on the audio state.
     var musicButtonName: String {
         if isAudioPlaying {
             return "pause.circle"
@@ -36,7 +42,7 @@ final class MainViewViewModel: ObservableObject {
     /// Audio player for handling audio playback.
     let audioPlayer = AudioPlayerViewModel()
 
-    /// Initializes the MainViewViewModel and fetches NBA team data.
+    /// Initializes the MainViewViewModel and fetches NBA team and games data.
     init() {
         fetchNBATeams()
         fetchNBAGames()
@@ -60,6 +66,7 @@ final class MainViewViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Fetches NBA games data from the API.
     func fetchNBAGames() {
         NBAStatsAPIClient.shared
             .fetchNBAGames(from: .now)
@@ -71,11 +78,10 @@ final class MainViewViewModel: ObservableObject {
                 case .failure(let error):
                     print("Error fetching NBA games: \(error)")
                 }
-            }, receiveValue: { [weak self] teams in
-                self?.nbaGames = teams
+            }, receiveValue: { [weak self] games in
+                self?.nbaGames = games
             })
             .store(in: &cancellables)
-        
     }
 
     /// Plays or pauses the audio.

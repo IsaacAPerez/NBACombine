@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NBAGamesTodayView: View {
     /// View model for the NBAGamesTodayView.
-    @ObservedObject var viewModel: NBAGamesTodayViewModel
+    @StateObject var viewModel: NBAGamesTodayViewModel
     
     var body: some View {
         ScrollView {

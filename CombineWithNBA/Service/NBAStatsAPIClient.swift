@@ -32,11 +32,28 @@ class NBAStatsAPIClient {
             .eraseToAnyPublisher()
     }
     
+    /// Fetches NBA games data from the API for a specific date.
+    ///
+    /// - Parameter date: The date for which games data is requested (default is the current date).
+    /// - Returns: A publisher with NBA games data or an error.
     func fetchNBAGames(from date: Date = .now) -> AnyPublisher<NBAGames, Error> {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let formattedDate = dateFormatter.string(from: date)
         return URLSession.shared.dataTaskPublisher(for: URL(string: "https://www.balldontlie.io/api/v1/games?dates[]=\(formattedDate)")!)
+            .receive(on: DispatchQueue.main)
+            .map { $0.data }
+            .decode(type: NBAGames.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    /// Fetches NBA games data from the API for the current week and a specific team.
+    ///
+    /// - Parameters:
+    ///   - gameID: The ID of the NBA team for which games data is requested.
+    /// - Returns: A publisher with NBA games data or an error.
+    func fetchTeamGamesByCurrentWeek(with gameID: String) -> AnyPublisher<NBAGames, Error> {
+        URLSession.shared.dataTaskPublisher(for: URL(string: "https://www.balldontlie.io/api/v1/games?team_ids[]=\(gameID)&dates[]=\(Calendar.current.getAllDaysInCurrentWeek())")!)
             .receive(on: DispatchQueue.main)
             .map { $0.data }
             .decode(type: NBAGames.self, decoder: JSONDecoder())

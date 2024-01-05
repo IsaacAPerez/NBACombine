@@ -10,17 +10,11 @@ import SwiftUI
 /// The main view of the app.
 struct MainView: View {
     /// View model for the MainView.
-    @ObservedObject var viewModel: MainViewViewModel
-    @State private var path: [Screen] = []
-    
-    enum Screen: Codable {
-        case teamStats
-        case todaysGame
-    }
+    @StateObject var viewModel: MainViewViewModel
     
     /// Body of the MainView.
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $viewModel.path) {
             VStack {
                 Text("NBA Combine: Stats Tracker")
                     .foregroundStyle(Color("NBAWhite"))
@@ -38,16 +32,18 @@ struct MainView: View {
                         viewModel.isAudioPlaying.toggle()
                     }
                 Spacer()
-                NBAButton(title: "See Today's Scores", action: { path.append(.todaysGame) })
-                NBAButton(title: "Find Team Stats",action: { path.append(.teamStats) })
+                NBAButton(title: "See Today's Scores", action: { viewModel.path.append(.todaysGame) })
+                NBAButton(title: "Find Team Stats",action: { viewModel.path.append(.teamStats) })
             }
             .padding()
             .frame(maxWidth: .infinity)
             .background(Color("NBABlue"))
-            .navigationDestination(for: Screen.self) { screen in
+            .navigationDestination(for: ScreenType.self) { screen in
                 switch screen {
                 case .teamStats:
-                    SelectTeamView(nbaTeam: viewModel.nbaTeam)
+                    if let nbaTeam = viewModel.nbaTeam {
+                        SelectTeamView(viewModel: .init(nbaTeam: nbaTeam))
+                    }
                 case .todaysGame:
                     NBAGamesTodayView(viewModel: .init())
                 }
