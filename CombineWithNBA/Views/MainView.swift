@@ -32,7 +32,9 @@ struct MainView: View {
                         viewModel.isAudioPlaying.toggle()
                     }
                 Spacer()
-                NBAButton(title: "See Today's Scores", action: { viewModel.path.append(.todaysGame) })
+                NBAButton(title: "See Today's Scores", action: {
+                    viewModel.path.append(.todaysGame)
+                })
                 NBAButton(title: "Find Team Stats",action: { viewModel.path.append(.teamStats) })
             }
             .padding()

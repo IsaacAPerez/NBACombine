@@ -17,8 +17,7 @@ struct NBAGameView: View {
                         Text("Home Team")
                             .font(.headline)
                             .fontWeight(.bold)
-                        Text(viewModel.game.home_team.city)
-                            .multilineTextAlignment(.center)
+                        
                         Text(viewModel.homeTeam)
                         Text(viewModel.homeScore)
                             .font(.title)
@@ -34,7 +33,7 @@ struct NBAGameView: View {
                         Text("Away Team")
                             .font(.headline)
                             .fontWeight(.bold)
-                        Text(viewModel.game.visitor_team.city)
+                        
                         Text(viewModel.awayTeam)
                         Text(viewModel.awayScore)
                             .font(.title)

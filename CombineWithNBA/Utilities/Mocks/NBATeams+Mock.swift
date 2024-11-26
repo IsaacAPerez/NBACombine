@@ -8,7 +8,7 @@
 import Foundation
 
 extension NBATeams {
-    static func mock() -> NBATeams {
-        return NBATeams(data: [.mock(team: .lakers), .mock(team: .pistons)], meta: .mock())
-    }
+//    static func mock() -> NBATeams {
+//        return NBATeams(data: [.mock(team: .lakers), .mock(team: .pistons)], meta: .mock())
+//    }
 }

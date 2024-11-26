@@ -15,7 +15,11 @@ final class MainViewViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     /// Array representing the navigation path through different screens.
-    @State var path: [ScreenType] = []
+    @Published var path: [ScreenType] = [] {
+        didSet {
+            print(path)
+        }
+    }
     
     /// Published property to store NBA team data.
     @Published var nbaTeam: NBATeams?

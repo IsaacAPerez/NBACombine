@@ -13,7 +13,7 @@ struct NBATeam: Identifiable, Codable {
     /// The abbreviated name of the NBA team.
     let abbreviation: String
     
-    /// The city where the NBA team is located.
+//    /// The city where the NBA team is located.
     let city: String
     
     /// The conference to which the NBA team belongs (e.g., "Eastern", "Western").

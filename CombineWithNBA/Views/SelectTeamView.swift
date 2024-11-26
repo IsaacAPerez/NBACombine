@@ -32,6 +32,6 @@ struct SelectTeamView: View {
     }
 }
 
-#Preview {
-    return SelectTeamView(viewModel: .init(nbaTeam: .mock()))
-}
+//#Preview {
+//    return SelectTeamView(viewModel: .init(nbaTeam: .mock()))
+//}

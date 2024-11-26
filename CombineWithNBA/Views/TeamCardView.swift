@@ -21,8 +21,8 @@ struct TeamCardView: View {
             Text(nbaTeam.name)
                 .font(.custom("NBA Lakers", size: 40))
             
-            Text(nbaTeam.city)
-                .font(.custom("NBA Lakers", size: 20))
+//            Text(nbaTeam.city)
+//                .font(.custom("NBA Lakers", size: 20))
             
             Text(nbaTeam.conference)
                 .font(.custom("NBA Lakers", size: 15))

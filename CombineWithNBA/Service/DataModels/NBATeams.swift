@@ -9,7 +9,4 @@
 struct NBATeams: Codable {
     /// The array containing details of individual NBA teams.
     let data: [NBATeam]
-    
-    /// Additional metadata related to the NBA teams collection, such as pagination information.
-    let meta: NBAMetadata
 }

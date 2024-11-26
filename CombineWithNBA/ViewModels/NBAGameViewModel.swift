@@ -49,8 +49,6 @@ final class NBAGameViewModel: ObservableObject {
     init(game: NBAGame) {
         self.game = game
     }
-    
-    
 }
 
 
