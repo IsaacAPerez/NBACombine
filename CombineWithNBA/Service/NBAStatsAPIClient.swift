@@ -105,10 +105,34 @@ class NBAStatsAPIClient {
     ///   - gameID: The ID of the NBA team for which games data is requested.
     /// - Returns: A publisher with NBA games data or an error.
     func fetchTeamGamesByCurrentWeek(with gameID: String) -> AnyPublisher<NBAGames, Error> {
-        URLSession.shared.dataTaskPublisher(for: URL(string: "https://www.balldontlie.io/api/v1/games?team_ids[]=\(gameID)&dates[]=\(Calendar.current.getAllDaysInCurrentWeek())")!)
-            .receive(on: DispatchQueue.main)
-            .map { $0.data }
+        let dates = Calendar.current.getAllDaysInCurrentWeek()
+        let datesQuery = dates.map { "dates[]=\($0)" }.joined(separator: "&")
+        let urlString = "https://api.balldontlie.io/v1/games?team_ids[]=\(gameID)&\(datesQuery)"
+        
+        guard let url = URL(string: urlString) else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+    
+        
+        // Create a request with the API key in the Authorization header
+        let apiKey = "f6e483c2-1847-41a1-afa7-f855db4853d7"
+        
+        // Create a URLRequest with the URL
+        var request = URLRequest(url: url)
+        
+        // Set HTTP method and headers
+        request.httpMethod = "GET"
+        request.setValue(apiKey, forHTTPHeaderField: "Authorization")
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
+            }
             .decode(type: NBAGames.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }
