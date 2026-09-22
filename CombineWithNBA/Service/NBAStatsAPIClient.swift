@@ -15,12 +15,6 @@ class NBAStatsAPIClient {
     /// Shared instance of the NBAStatsAPIClient.
     static let shared = NBAStatsAPIClient()
     
-    /// Set of cancellables to store Combine publishers.
-    var cancellables = Set<AnyCancellable>()
-    
-    /// The selected NBA team.
-    static var team: NBATeam?
-    
     /// Fetches NBA team data from the API.
     ///
     /// - Returns: A publisher with NBA team data or an error.

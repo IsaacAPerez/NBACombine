@@ -12,9 +12,6 @@ class AudioPlayerViewModel: ObservableObject {
     /// The AVAudioPlayer responsible for audio playback.
     var audioPlayer: AVAudioPlayer?
     
-    /// A Published property indicating whether the audio is currently playing.
-    @Published var isPlaying = false
-
     /// Initializes the AudioPlayerViewModel with the specified audio file.
     init() {
         // Load the audio file from the app's main bundle
@@ -36,11 +33,9 @@ class AudioPlayerViewModel: ObservableObject {
         if player.isPlaying {
             // If not playing, pause the audio
             player.pause()
-            isPlaying = false
         } else {
             // If playing, resume or start playing the audio
             player.play()
-            isPlaying = true
         }
     }
 }
