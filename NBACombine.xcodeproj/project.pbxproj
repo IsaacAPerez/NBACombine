@@ -98,7 +98,7 @@
 		DAED2D902B3CD6850038D66F /* NBAMetadata+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBAMetadata+Mock.swift"; sourceTree = "<group>"; };
 		DAED2D922B3CD6C40038D66F /* NBATeams+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NBATeams+Mock.swift"; sourceTree = "<group>"; };
 		DAED2D982B3CE81B0038D66F /* nba-lakers.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nba-lakers.ttf"; sourceTree = "<group>"; };
-		DAFB20772B3FA2750072C7C8 /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nbaSoundTrack.mp3; path = Project/Assets.xcassets/nbaSoundTrack.dataset/nbaSoundTrack.mp3; sourceTree = "<group>"; };
+		DAFB20772B3FA2750072C7C8 /* nbaSoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nbaSoundTrack.mp3; path = Utilities/nbaSoundTrack.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

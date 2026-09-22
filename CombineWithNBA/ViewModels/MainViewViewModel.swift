@@ -24,9 +24,6 @@ final class MainViewViewModel: ObservableObject {
     /// Published property to store NBA team data.
     @Published var nbaTeam: NBATeams?
     
-    /// Published property to store NBA games data.
-    @Published var nbaGames: NBAGames?
-    
     /// Published property indicating whether audio is currently playing.
     @Published var isAudioPlaying: Bool = false {
         didSet {
@@ -46,10 +43,9 @@ final class MainViewViewModel: ObservableObject {
     /// Audio player for handling audio playback.
     let audioPlayer = AudioPlayerViewModel()
 
-    /// Initializes the MainViewViewModel and fetches NBA team and games data.
+    /// Initializes the MainViewViewModel and fetches NBA team data.
     init() {
         fetchNBATeams()
-        fetchNBAGames()
     }
 
     /// Fetches NBA team data from the API.
@@ -70,26 +66,4 @@ final class MainViewViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    /// Fetches NBA games data from the API.
-    func fetchNBAGames() {
-        NBAStatsAPIClient.shared
-            .fetchNBAGames(from: .now)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("Error fetching NBA games: \(error)")
-                }
-            }, receiveValue: { [weak self] games in
-                self?.nbaGames = games
-            })
-            .store(in: &cancellables)
-    }
-
-    /// Plays or pauses the audio.
-    func playAudio() {
-        audioPlayer.playOrPause()
-    }
 }

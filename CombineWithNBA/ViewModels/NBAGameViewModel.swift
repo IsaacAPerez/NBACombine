@@ -10,8 +10,6 @@ import Foundation
 
 /// ViewModel for the main view of the app.
 final class NBAGameViewModel: ObservableObject {
-    /// Set of cancellables to store Combine publishers.
-    var cancellables = Set<AnyCancellable>()
     var game: NBAGame
     
     var homeTeam: String {
@@ -20,10 +18,6 @@ final class NBAGameViewModel: ObservableObject {
 
     var awayTeam: String {
         game.visitor_team.name
-    }
-
-    var status: String {
-        game.status
     }
 
     var homeScore: String {
